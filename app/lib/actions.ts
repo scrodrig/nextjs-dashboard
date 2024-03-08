@@ -1,5 +1,7 @@
 'use server';
 
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 import { sql } from '@vercel/postgres';
 import { z } from 'zod';
 
@@ -25,6 +27,8 @@ export async function createInvoice(formData: FormData) {
   // console.log(rawFormData);
   await sql`
   INSERT INTO invoices (customer_id, amount, status, date)
-  VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
-`;
+  VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
+
+  revalidatePath('/dashboard/invoices');
+  redirect('/dashboard/invoices');
 }
