@@ -32,13 +32,11 @@ This is a dashboard project built with Next.js.
   npm run dev
   ```
 
+  Mind to have a `.env` file for variables
+
 2. Open your browser and navigate to [http://localhost:3000](http://localhost:3000).
 
 
 ## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-## Acknowledgements
 
 - [Next.js](https://nextjs.org)
